@@ -1,3 +1,4 @@
+import 'package:feed_cards/models/items.dart';
 import 'package:flutter/material.dart';
 
 import 'buttonscard.dart';
@@ -8,7 +9,8 @@ import 'titlecard.dart';
 class Cardfeed extends StatelessWidget {
   const Cardfeed({super.key, required this.card});
 
-  final Map<String, String> card;
+  final ItemCard card;
+  // final Map<String, String> card;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,13 @@ class Cardfeed extends StatelessWidget {
           Container(
               padding: const EdgeInsets.all(10),
               child: TitleCard(
-                name: card["name"]!,
+                name: card.title!,
+                // name: card["name"]!,
               )),
-          DescriptionCard(description: card["description"]!),
-          ImageCard(image: card["image"]!),
+          DescriptionCard(description: "${card.price!}"),
+          // DescriptionCard(description: card["description"]!),
+          ImageCard(image: card.thumbnail!),
+          // ImageCard(image: card["image"]!),
           const ButtonsCard()
         ],
       ),
